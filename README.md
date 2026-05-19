@@ -12,24 +12,12 @@
 npx skills add https://github.com/glm1024/frontend-best-practices -g -y
 ```
 
-也可以在本机调试安装：
-
-```bash
-npx skills add /Users/mark/workspace/skills/frontend-best-practices -l
-```
-
 ## 更新
 
 如果是按上面的全局方式安装，后续更新：
 
 ```bash
 npx skills update frontend-best-practices -g -y
-```
-
-也可以一次更新全部全局 skills：
-
-```bash
-npx skills update -g -y
 ```
 
 如果是项目级安装，把 `-g` 改成 `-p`，或在对应项目目录下运行更新命令。
