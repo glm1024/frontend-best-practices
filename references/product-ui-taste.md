@@ -1,0 +1,86 @@
+# Product UI Taste
+
+Use this reference for admin systems, dashboards, internal tools, operational products, and Chinese product UI copy.
+
+## Default Taste
+
+For product/admin work, aim for a restrained operational workspace:
+
+- Dense but readable information.
+- Predictable navigation, filters, tables, dialogs, drawers, and forms.
+- Quiet hierarchy over decorative styling.
+- Utility copy over marketing copy.
+- Existing design system over invented component styles.
+- Clear primary action, secondary action, destructive action, and disabled action treatment.
+
+Avoid:
+
+- Marketing hero sections inside tools.
+- Decorative gradient blobs, orbs, bokeh, abstract SVG filler, or stock-like decoration.
+- Card-on-card page structures.
+- Oversized headings inside compact tools.
+- New palettes or motion systems for one local fix.
+- Rewriting a whole layout when the problem is alignment, spacing, state, or copy.
+
+## When The User Says It Looks Bad
+
+First decide whether the complaint is local polish or direction mismatch:
+
+- Local polish: fix the smallest surface that creates the ugliness, such as alignment, density, button placement, wrapping, icon choice, contrast, or hierarchy.
+- Direction mismatch: compare the current screen with nearby accepted screens or reference products. For broad redesign, present 3 to 5 visual directions before coding.
+- "Still average": stop polishing the same direction mechanically. Re-evaluate structure, hierarchy, and product purpose.
+
+Do not turn a practical admin workflow into a landing page unless the user explicitly asks for that.
+
+## Layout And Density
+
+- Prefer one clear toolbar/filter area, one main content area, and one predictable pagination/action area for list pages.
+- Keep table actions compact and consistent.
+- Let forms scan vertically; group related fields, but avoid unnecessary nested cards.
+- Keep buttons stable in size and position when loading text appears.
+- Use responsive constraints so controls wrap intentionally rather than overlap.
+- Long Chinese text should wrap or truncate with a title/tooltip according to table density.
+- Empty states should guide the next action without becoming promotional.
+
+## Copy
+
+Chinese product copy should sound like an internal product written by a person:
+
+- Prefer concrete verbs: `保存`, `生成邀请码`, `作废`, `删除`, `重新上传`, `导入`.
+- Avoid vague labels like `确定`, `提交`, `处理`, `操作` when the consequence can be named.
+- Error messages should say what failed and what the user can do next.
+- Confirmation dialogs should name the object and consequence.
+- Loading text should be specific only when it helps; otherwise a button spinner plus disabled state is enough.
+- Avoid explanatory paragraphs inside dense tools unless the user needs domain guidance to proceed.
+
+## Visual Polish Rules
+
+- Match spacing, border radius, typography, and icon language to the existing app.
+- Reserve high-contrast or saturated colors for meaningful state.
+- Do not make a one-note palette by overusing one hue family.
+- Use icons where the product already uses them, but do not hide unfamiliar actions behind unlabeled icons.
+- Text must fit its parent at supported viewport sizes; if it cannot, change the layout rather than shrinking with viewport width.
+- Preserve accessible contrast and focus states.
+
+## Loading Taste
+
+- A full-screen or full-page dimmer feels disruptive when the existing content is still useful.
+- Fast operations should use local busy state or a stable inline indicator instead of flashing global loading UI.
+- Section refreshes should not wipe the section unless stale content would be misleading.
+- For tables, local loading inside the table is usually better than blocking the whole page.
+
+## Project Fit
+
+For RuoYi-style admin systems:
+
+- Prefer established table/search/dialog patterns.
+- Keep toolbar actions and row actions consistent with neighboring modules.
+- Use existing Element UI/Element Plus patterns unless the project has wrapped them.
+- Validate with the repo's actual frontend build script, often `npm run build:prod` in older Vue admin projects.
+
+For mini programs or mobile-first flows:
+
+- Avoid global dimming for very fast interactions.
+- Keep the primary task visually dominant.
+- Use local locks for answer/submit actions.
+- Respect touch target size and narrow-screen wrapping.
