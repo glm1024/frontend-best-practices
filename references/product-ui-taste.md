@@ -82,5 +82,6 @@ For mini programs or mobile-first flows:
 
 - Avoid global dimming for very fast interactions.
 - Keep the primary task visually dominant.
+- For repeated capture/input workflows, keep prior entries visible and anchor the primary input control near the bottom instead of placing oversized controls in the content stream.
 - Use local locks for answer/submit actions.
 - Respect touch target size and narrow-screen wrapping.
