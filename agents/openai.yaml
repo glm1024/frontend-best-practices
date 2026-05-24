@@ -1,7 +1,7 @@
 interface:
   display_name: "Frontend Best Practices"
-  short_description: "Ship polished frontend UI with fewer rework loops."
-  default_prompt: "Use $frontend-best-practices to build or review this frontend change before handoff."
+  short_description: "Ship polished web, mini-program, and app UI with fewer rework loops."
+  default_prompt: "Use $frontend-best-practices to build or review this web, mini-program, or app frontend change before handoff."
 
 policy:
   allow_implicit_invocation: true

@@ -2,7 +2,7 @@
 
 `frontend-best-practices` 是一个用于前端交互开发和交付前自检的 Codex skill。
 
-它不是视觉设计生成器，也不是某个框架的组件库规则，而是一个前端质量守门员：在实现或修改用户界面时，提前覆盖真实用户常遇到的小坑，包括重复提交、慢接口、局部 loading、错误态、空态、权限态、长文本、响应式、表单校验、列表刷新、浏览器验证边界，以及后台产品界面的克制风格。
+它不是视觉设计生成器，也不是某个框架的组件库规则，而是一个前端质量守门员：在实现或修改用户界面时，先区分 Web 端、小程序端、App 端或混合端，再提前覆盖真实用户常遇到的小坑，包括重复提交、慢接口、局部 loading、错误态、空态、权限态、长文本、响应式、表单校验、列表刷新、平台验证边界，以及后台产品界面的克制风格。
 
 ## 安装
 
@@ -36,6 +36,7 @@ npx skills update frontend-best-practices -g -y
 ## 这个 skill 提供什么
 
 - 前端改动前的范围判断和工作流：什么时候只做窄修，什么时候需要先出设计方向
+- Web / 小程序 / App 的平台约束判断：不同端的交互、权限、生命周期、安全区和验证方式不能混用
 - 异步交互安全规则：重复点击、防重入、提交态、行级动作锁、慢接口、 stale response
 - 表单、弹窗、抽屉、表格、筛选、分页、上传、导入、批量操作等常见 UI 的状态完整性检查
 - 后台 / 产品型界面的审美约束：克制、实用、信息密度合适，不把管理系统做成营销页
@@ -48,6 +49,7 @@ npx skills update frontend-best-practices -g -y
 - `SKILL.md`：skill 入口，负责触发条件、核心工作流和 reference 路由
 - `agents/openai.yaml`：Codex / OpenAI skill UI 元数据
 - `references/workflow.md`：前端改动工作流、范围控制和验证策略
+- `references/platform-surfaces.md`：Web、小程序、App 和混合端的平台约束与验证边界
 - `references/interaction-states.md`：异步交互、表单、表格、上传、乐观更新和可访问性规则
 - `references/product-ui-taste.md`：产品后台界面 taste、中文文案和视觉克制规则
 - `references/review-checklist.md`：交付前审查清单和 review 严重级别

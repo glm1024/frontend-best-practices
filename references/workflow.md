@@ -6,6 +6,7 @@ Use this as the operating sequence for frontend changes. It combines hardening, 
 
 Identify the smallest useful scope before editing:
 
+- Platform surface: web, mini-program, app, or mixed wrapper. Use [platform-surfaces.md](platform-surfaces.md) when runtime constraints affect interaction or validation.
 - Bug fix: reproduce or reason from the failing path, fix the root cause, then sweep nearby similar interactions.
 - Interaction change: list the states the user can enter before, during, and after the action.
 - Visual polish: inspect the neighboring UI and design system first; keep changes proportional to the complaint.
@@ -54,6 +55,8 @@ Use the lightest validation that can catch the expected regression:
 - Code confidence: run available lint, typecheck, unit tests, or framework build scripts.
 - Project build: for many Vue/RuoYi admin repos, `npm run build:prod` is the realistic frontend confidence check when available.
 - Browser validation: use for modals, forms, responsive layout, routing, filtering, uploads, focus behavior, and visual overlap.
+- Mini-program validation: use the target mini-program tool or real device when lifecycle, permissions, camera, scan, voice, payment, location, safe areas, or keyboard behavior matters.
+- App validation: use simulator/emulator or real device checks for native navigation, OS permissions, safe areas, keyboard avoidance, deep links, offline behavior, and native modules.
 - Current-session validation: use Chrome/Computer Use only when the real logged-in session or desktop state matters.
 
 If you start a temporary dev server, stop it before handoff unless the user explicitly wants it left running.
@@ -65,6 +68,7 @@ Report only high-signal details:
 - What surface changed.
 - What predictable frontend pitfalls were covered.
 - What validation ran.
+- What platform assumptions shaped validation, when relevant.
 - Any remaining risk, such as untested browser state or unavailable backend.
 
 Do not dump the whole checklist unless the user asks for it.

@@ -1,6 +1,6 @@
 ---
 name: frontend-best-practices
-description: Frontend development best practices for building and reviewing user-facing UI with fewer rework loops. Use when creating, changing, polishing, or reviewing frontend interfaces, especially async buttons, forms, modals, drawers, tables, filters, uploads, dashboards, admin tools, responsive layouts, loading/error/empty/success states, accessibility, UX copy, visual polish, or browser-validation decisions. Also use when the user mentions frontend best practices, repeated rework, duplicate clicks, 防重复提交, 不好看, 返工, 状态不完整, or wants UI quality checked before handoff.
+description: Frontend development best practices for building and reviewing user-facing UI across web, mini-program, and app surfaces with fewer rework loops. Use when creating, changing, polishing, or reviewing frontend interfaces, especially async buttons, forms, modals, drawers, tables, filters, uploads, dashboards, admin tools, responsive layouts, loading/error/empty/success states, accessibility, UX copy, visual polish, platform-specific interaction, or validation decisions. Also use when the user mentions frontend best practices, repeated rework, duplicate clicks, 防重复提交, 不好看, 返工, 状态不完整, 小程序, app 端, or wants UI quality checked before handoff.
 ---
 
 # Frontend Best Practices
@@ -10,6 +10,7 @@ Use this skill as a frontend quality gate before handoff. The goal is to reduce 
 ## Core Workflow
 
 1. Classify the surface and intent.
+   - Platform surface: identify whether the target is web, mini-program, native/hybrid app, or a mixed wrapper before choosing interaction constraints or validation.
    - Product/admin/dashboard/tool UI: prioritize restrained utility, information density, predictable controls, and stable workflows.
    - Brand/landing/portfolio/game UI: use stronger visual direction, but still preserve interaction completeness.
    - Narrow bug or polish request: keep the existing product shape unless the user asks for a redesign.
@@ -32,6 +33,7 @@ Use this skill as a frontend quality gate before handoff. The goal is to reduce 
 ## Reference Routing
 
 - Read [workflow.md](references/workflow.md) at the start of substantial frontend work or when choosing validation scope.
+- Read [platform-surfaces.md](references/platform-surfaces.md) when the target may be web, mini-program, app, mobile-first, cross-platform, or when choosing platform-specific validation.
 - Read [interaction-states.md](references/interaction-states.md) when touching buttons, forms, tables, modals, drawers, uploads, filters, async requests, optimistic UI, permissions, or list refreshes.
 - Read [product-ui-taste.md](references/product-ui-taste.md) for admin/product tools, dashboard UI, RuoYi-style systems, visual polish, Chinese product copy, or user taste alignment.
 - Read [review-checklist.md](references/review-checklist.md) before final handoff, and whenever the user asks for a review or audit.

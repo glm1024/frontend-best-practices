@@ -15,6 +15,7 @@ When the user asks for a review, lead with findings in severity order and includ
 Check:
 
 - The implementation matches the user's requested scope.
+- The target platform is identified: web, mini-program, app, or mixed wrapper.
 - Existing project components and patterns are reused.
 - The change does not introduce a second visual language.
 - Similar nearby actions with the same failure mode were considered.
@@ -50,7 +51,7 @@ Check:
 - Accessible names for icon-only controls.
 - Color-independent state communication.
 - Sufficient contrast for text, disabled states, errors, and links.
-- Touch target size for mobile or mini-program surfaces.
+- Touch target size, safe-area spacing, and keyboard avoidance for mobile, mini-program, or app surfaces.
 
 ## Visual And Taste Fit
 
@@ -80,6 +81,8 @@ Choose validation based on risk:
 - Lint/typecheck/unit tests when available and relevant.
 - Frontend build script for component/template regressions.
 - Browser verification for real interaction, modal, form, route, upload, layout, or responsive behavior.
+- Mini-program tool or real-device verification for lifecycle, navigation stack, permissions, camera/scan/voice/payment/location, safe area, or keyboard paths.
+- App simulator/emulator or real-device verification for native navigation, OS permissions, deep links, offline/foreground transitions, native modules, safe area, or keyboard behavior.
 
 If validation cannot run, state the blocker and what risk remains.
 
