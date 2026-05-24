@@ -85,3 +85,14 @@ For mini programs or mobile-first flows:
 - For repeated capture/input workflows, keep prior entries visible and anchor the primary input control near the bottom instead of placing oversized controls in the content stream.
 - Use local locks for answer/submit actions.
 - Respect touch target size and narrow-screen wrapping.
+
+## Mobile Operational Layouts
+
+For task-heavy mini-program pages with a top control area, central work area, and bottom primary action:
+
+- Identify the real primary action first. If the bottom action is the main repeated operation, make top actions feel like a compact control strip instead of competing primary buttons.
+- Merge low-risk secondary actions such as `切换`, `筛选`, or `更多` into the status row when space allows. Avoid giving a short secondary link its own full-height row.
+- Keep one visual rhythm between stacked regions. Top-to-middle and middle-to-bottom gaps should feel intentionally related, not accidental.
+- Use fixed middle workspaces when a persistent bottom command would otherwise cover content. Let the middle list scroll internally, but hide native scrollbars unless the product specifically needs a visible scrollbar.
+- Avoid the “three unrelated buttons” feeling on mobile. When a page has two top actions and one bottom action, demote or group the top actions so the bottom command remains the obvious next step.
+- For dense record lists, keep row typography strong, metadata quiet, and row actions compact. Do not add decorative cards around every row unless each row is a distinct object card.

@@ -60,6 +60,8 @@ Check:
 - The screen feels like the same product as neighboring pages.
 - Product/admin UI remains restrained, dense, and useful.
 - Cards are not nested unnecessarily.
+- Top controls, central work area, and persistent bottom commands have deliberate spacing and hierarchy.
+- Secondary actions do not occupy standalone vertical space when they can live in a status row or compact toolbar.
 - Loading, empty, and error states do not feel theatrical.
 - Button text, dialog titles, and destructive confirmations name the actual action.
 - No decorative gradients/orbs/stock filler were added to operational tools.
@@ -82,6 +84,7 @@ Choose validation based on risk:
 - Frontend build script for component/template regressions.
 - Browser verification for real interaction, modal, form, route, upload, layout, or responsive behavior.
 - Mini-program tool or real-device verification for lifecycle, navigation stack, permissions, camera/scan/voice/payment/location, safe area, or keyboard paths.
+- Real-device or target-tool verification for press-and-hold gestures, cancellation thresholds, and thumb-reach issues.
 - App simulator/emulator or real-device verification for native navigation, OS permissions, deep links, offline/foreground transitions, native modules, safe area, or keyboard behavior.
 
 If validation cannot run, state the blocker and what risk remains.

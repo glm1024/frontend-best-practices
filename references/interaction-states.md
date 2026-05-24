@@ -90,6 +90,18 @@ Protect:
 
 Do not rely on network latency being low. Slow API calls are part of normal behavior.
 
+## Press-And-Hold Capture Gestures
+
+Use this for voice, camera, scan, or other press-and-hold capture controls:
+
+- Provide an explicit cancel gesture when capture can be started by mistake. `松开识别` and `上滑取消` should be different states, not the same release path with later cleanup.
+- The cancel target must be visible for both left- and right-thumb operation. Do not place the only hint in the bottom-left or bottom-right zone where the pressing thumb can cover it.
+- Use a weak hint before the user crosses the cancel threshold, then a clear active state after the threshold. Active cancel state should change copy, icon, and color or emphasis.
+- Releasing in the active cancel state must call the real cancellation path and must not submit, recognize, upload, or save partial content.
+- Clear timers, countdowns, previews, pending recognizer state, and temporary UI flags on cancel. Auto-clear weak “已取消” feedback so it does not become a nuisance prompt.
+- Gesture thresholds should be forgiving and platform-sized, not raw pixel guesses. Convert design units to runtime pixels where needed and cache device metrics when the handler runs often.
+- Validate with the target device/runtime when microphone, camera, scan, or other device APIs are involved. Syntax checks are not enough for gesture feel or permission behavior.
+
 ## Async Reads And Refreshes
 
 Separate first load from refresh:
