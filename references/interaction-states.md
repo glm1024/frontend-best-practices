@@ -134,6 +134,17 @@ async getList() {
 
 Use stale-response guards for quick filters, tabs, pagination, route params, search-as-you-type, and dependent dropdowns.
 
+## Streaming And Event-Driven Feedback
+
+For chat, agent, SSE, websocket, or log-stream surfaces:
+
+- Map the protocol before shaping the UI. Separate content events from lifecycle events, telemetry, heartbeat, errors, and structured render payloads.
+- Do not render lifecycle end events as new conversation messages. Pair `*_start` and `*_end` events into one compact activity row, updating state from running to complete.
+- Ignore heartbeat events in the visible transcript. They are transport keepalive signals, not user-facing progress.
+- Render token usage, catalog/resource hints, and tool-call metadata as muted trace details unless the product explicitly needs them as primary content.
+- Keep streamed assistant text as one continuous answer per turn, appending chunks into the same message so Markdown, collapsible reasoning blocks, and tables render coherently.
+- Structured result events should use the current page theme and density rules; do not let third-party table/card defaults break dark mode or visual consistency.
+
 ## Tables And Row Actions
 
 For data tables:
