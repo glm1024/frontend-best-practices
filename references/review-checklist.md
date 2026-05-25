@@ -61,6 +61,7 @@ Check:
 - Product/admin UI remains restrained, dense, and useful.
 - Cards are not nested unnecessarily.
 - Top controls, central work area, and persistent bottom commands have deliberate spacing and hierarchy.
+- Persistent bottom composers or command bars leave enough bottom padding for empty states, the last message/row, and mobile keyboards; verify narrow viewports after content exists, not only on the empty screen.
 - Secondary actions do not occupy standalone vertical space when they can live in a status row or compact toolbar.
 - Loading, empty, and error states do not feel theatrical.
 - Button text, dialog titles, and destructive confirmations name the actual action.
