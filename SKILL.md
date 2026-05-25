@@ -35,7 +35,7 @@ Use this skill as a frontend quality gate before handoff. The goal is to reduce 
 - Read [workflow.md](references/workflow.md) at the start of substantial frontend work or when choosing validation scope.
 - Read [platform-surfaces.md](references/platform-surfaces.md) when the target may be web, mini-program, app, mobile-first, cross-platform, or when choosing platform-specific validation.
 - Read [interaction-states.md](references/interaction-states.md) when touching buttons, forms, tables, modals, drawers, uploads, filters, async requests, optimistic UI, permissions, or list refreshes.
-- Read [product-ui-taste.md](references/product-ui-taste.md) for admin/product tools, dashboard UI, RuoYi-style systems, visual polish, Chinese product copy, or user taste alignment.
+- Read [product-ui-taste.md](references/product-ui-taste.md) for admin/product tools, dashboard UI, component-library admin systems, visual polish, Chinese product copy, or user taste alignment.
 - Read [review-checklist.md](references/review-checklist.md) before final handoff, and whenever the user asks for a review or audit.
 
 ## Hard Defaults

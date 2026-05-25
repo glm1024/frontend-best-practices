@@ -5,7 +5,7 @@ Use this after classifying the UI intent. Platform is a constraint layer: keep t
 ## Identify The Target
 
 - Web: browser pages, admin systems, dashboards, H5/mobile web, embedded webviews, or SSR/SPA apps.
-- Mini-program: WeChat/Alipay/uni-app-style pages where navigation, lifecycle, permissions, and device APIs follow the mini-program runtime.
+- Mini-program: pages where navigation, lifecycle, permissions, and device APIs follow a mini-program runtime.
 - App: native, React Native, Flutter, hybrid, or packaged mobile/desktop apps where the OS, native navigation, and device permissions affect behavior.
 - Mixed surface: web content inside an app, mini-program pages backed by shared web code, or cross-platform components. Identify the delivery target before choosing validation.
 
@@ -25,7 +25,7 @@ Validation:
 
 - Use lint, typecheck, unit tests, and framework build scripts when available.
 - Use a real browser for route, form, modal, upload, responsive, focus, and visual-overlap checks.
-- Use repeatable browser automation for important flows or regressions; use a logged-in Chrome session only when current user state is required.
+- Use repeatable browser automation for important flows or regressions; use a logged-in browser session only when current user state is required.
 
 ## Mini-Program
 
@@ -41,7 +41,7 @@ Design and review for:
 Validation:
 
 - Run the project or framework build command when available.
-- Use WeChat Developer Tools or the target mini-program tool for page routing, lifecycle, permissions, and device API behavior.
+- Use the target mini-program developer tool for page routing, lifecycle, permissions, and device API behavior.
 - Use a real device when camera, scan, voice, payment, location, safe-area, keyboard, or permission prompts matter.
 - Treat simulator-only layout checks as insufficient for device API or permission-sensitive changes.
 

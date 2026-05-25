@@ -22,7 +22,7 @@ Before inventing a solution, inspect:
 - Existing validation scripts such as `npm run build`, `npm run build:prod`, `npm run lint`, `npm run typecheck`, or framework-specific checks.
 - Project instructions and taste docs: `AGENTS.md`, `PRODUCT.md`, `DESIGN.md`, style guides, README notes.
 
-For RuoYi/Vue admin systems, expect useful patterns around table loading flags, dialog state, `this.$refs.form.validate`, row actions, and `npm run build:prod`. Verify against the actual repo scripts.
+For component-library admin systems, expect useful patterns around table loading flags, dialog state, form validation helpers, row actions, and repo-specific build scripts. Verify against the actual repo scripts.
 
 ## 3. Scope the Fix Conservatively
 
@@ -53,11 +53,11 @@ Use the lightest validation that can catch the expected regression:
 
 - Static hygiene: `git diff --check`; inspect changed files for accidental churn.
 - Code confidence: run available lint, typecheck, unit tests, or framework build scripts.
-- Project build: for many Vue/RuoYi admin repos, `npm run build:prod` is the realistic frontend confidence check when available.
+- Project build: for admin repos, run the actual production build script when available instead of assuming a lightweight syntax check is enough.
 - Browser validation: use for modals, forms, responsive layout, routing, filtering, uploads, focus behavior, and visual overlap.
 - Mini-program validation: use the target mini-program tool or real device when lifecycle, permissions, camera, scan, voice, payment, location, safe areas, or keyboard behavior matters.
 - App validation: use simulator/emulator or real device checks for native navigation, OS permissions, safe areas, keyboard avoidance, deep links, offline behavior, and native modules.
-- Current-session validation: use Chrome/Computer Use only when the real logged-in session or desktop state matters.
+- Current-session validation: use the user's active browser or desktop automation only when the real logged-in session or desktop state matters.
 
 If you start a temporary dev server, stop it before handoff unless the user explicitly wants it left running.
 

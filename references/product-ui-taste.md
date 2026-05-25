@@ -71,12 +71,12 @@ Chinese product copy should sound like an internal product written by a person:
 
 ## Project Fit
 
-For RuoYi-style admin systems:
+For component-library admin systems:
 
 - Prefer established table/search/dialog patterns.
 - Keep toolbar actions and row actions consistent with neighboring modules.
-- Use existing Element UI/Element Plus patterns unless the project has wrapped them.
-- Validate with the repo's actual frontend build script, often `npm run build:prod` in older Vue admin projects.
+- Use existing component-library patterns unless the project has wrapped them.
+- Validate with the repo's actual frontend build script instead of assuming the command name.
 
 For mini programs or mobile-first flows:
 

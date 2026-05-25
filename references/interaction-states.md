@@ -94,12 +94,12 @@ Do not rely on network latency being low. Slow API calls are part of normal beha
 
 Use this for voice, camera, scan, or other press-and-hold capture controls:
 
-- Provide an explicit cancel gesture when capture can be started by mistake. `松开识别` and `上滑取消` should be different states, not the same release path with later cleanup.
-- Separate service startup from capture. If a recorder, permission check, credential fetch, or socket connection is still warming up, label the state as connecting or preparing and tell the user when to speak; do not show copy that implies audio is already being captured.
+- Provide an explicit cancel gesture when capture can be started by mistake. Release-to-complete and slide-to-cancel should be different states, not the same release path with later cleanup.
+- Separate service startup from capture. If runtime dependencies or permission checks are still warming up, label the state as connecting or preparing and tell the user when to start; do not show copy that implies capture is already active.
 - The cancel target must be visible for both left- and right-thumb operation. Do not place the only hint in the bottom-left or bottom-right zone where the pressing thumb can cover it.
 - Use a weak hint before the user crosses the cancel threshold, then a clear active state after the threshold. Active cancel state should change copy, icon, and color or emphasis.
-- Releasing in the active cancel state must call the real cancellation path and must not submit, recognize, upload, or save partial content.
-- Clear timers, countdowns, previews, pending recognizer state, and temporary UI flags on cancel. Auto-clear weak “已取消” feedback so it does not become a nuisance prompt.
+- Releasing in the active cancel state must call the real cancellation path and must not complete or persist partial content.
+- Clear timers, countdowns, previews, pending capture state, and temporary UI flags on cancel. Auto-clear weak cancellation feedback so it does not become a nuisance prompt.
 - Prewarm cold-start dependencies early when the runtime allows it, but do not trigger surprise permission prompts on page load. Silently check existing authorization and fetch/cache non-sensitive startup data before the first press.
 - Gesture thresholds should be forgiving and platform-sized, not raw pixel guesses. Convert design units to runtime pixels where needed and cache device metrics when the handler runs often.
 - Validate with the target device/runtime when microphone, camera, scan, or other device APIs are involved. Syntax checks are not enough for gesture feel or permission behavior.
@@ -136,14 +136,13 @@ Use stale-response guards for quick filters, tabs, pagination, route params, sea
 
 ## Streaming And Event-Driven Feedback
 
-For chat, agent, SSE, websocket, or log-stream surfaces:
+For chat, long-running generation, live logs, or event-driven progress surfaces:
 
-- Map the protocol before shaping the UI. Separate content events from lifecycle events, telemetry, heartbeat, errors, and structured render payloads.
-- Do not render lifecycle end events as new conversation messages. Pair `*_start` and `*_end` events into one compact activity row, updating state from running to complete.
-- Ignore heartbeat events in the visible transcript. They are transport keepalive signals, not user-facing progress.
-- Render token usage, catalog/resource hints, and tool-call metadata as muted trace details unless the product explicitly needs them as primary content.
-- Keep streamed assistant text as one continuous answer per turn, appending chunks into the same message so Markdown, collapsible reasoning blocks, and tables render coherently.
-- Structured result events should use the current page theme and density rules; do not let third-party table/card defaults break dark mode or visual consistency.
+- Classify incoming events by user-facing purpose before shaping the UI: primary content, progress, completion, diagnostics, errors, and structured results should not all become the same visible message type.
+- Control or completion signals should update existing activity state instead of creating extra content entries.
+- Transport and diagnostic signals should stay out of the primary transcript unless the product explicitly exposes a technical trace view.
+- Keep streamed generated text as one continuous answer per logical turn, appending chunks into the same message so Markdown, collapsible detail blocks, and tables render coherently.
+- Structured results should use the current page theme and density rules; do not let third-party table/card defaults break dark mode or visual consistency.
 
 ## Tables And Row Actions
 
