@@ -143,6 +143,8 @@ For chat, long-running generation, live logs, or event-driven progress surfaces:
 - Transport and diagnostic signals should stay out of the primary transcript unless the product explicitly exposes a technical trace view.
 - Keep streamed generated text as one continuous answer per logical turn, appending chunks into the same message so Markdown, collapsible detail blocks, and tables render coherently.
 - Structured results should use the current page theme and density rules; do not let third-party table/card defaults break dark mode or visual consistency.
+- Normalize structured result payloads against the backend contract before rendering. Tables may arrive as object rows, array rows keyed by `columns`, empty datasets with only headers, or result cards with follow-up actions; each shape needs an intentional empty, overflow, and action state.
+- Streaming endpoints may return a normal JSON error before the event stream starts. Detect content type and API envelopes before opening the stream reader so validation, auth, and configuration errors become recoverable UI messages instead of silent broken transcripts.
 
 ## Tables And Row Actions
 
