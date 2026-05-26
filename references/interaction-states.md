@@ -174,6 +174,17 @@ Form expectations:
 - Errors do not erase user input.
 - Date/time pickers specify format, timezone implications, and clearable behavior when relevant.
 
+## Command Inputs And Starter Prompts
+
+Use this for chat composers, command palettes, slash commands, and prompt suggestion cards:
+
+- Start text composers at the smallest useful height, usually one line for chat-like input. Auto-grow only as content wraps or users add lines, then cap height and let the input scroll internally.
+- A persistent bottom composer should not reserve large empty vertical space or hide the empty state, last message, or last row. Verify the empty screen and the after-content screen.
+- Treat command chips, selected modes, and agent selectors as state, not message content. Once a slash command is accepted, normalize the visible input to content-only text so labels such as `/report` are not duplicated in both the chip and the textarea.
+- Keep command menus proportional to the composer. A slash menu should feel like a compact picker with a clear active row, keyboard navigation, and Enter/Escape behavior, not like a large content panel.
+- Starter cards and examples should not look like committed user text when they are only suggestions. Prefer placeholder-like draft text with quieter color that clears on focus or click, while the app may still send it directly if the user activates the suggestion intentionally.
+- When a suggestion fills the composer, make the state explicit in code: distinguish `placeholder`, `draft suggestion`, and real user input so clearing, character count, submit eligibility, and slash parsing do not drift apart.
+
 ## Uploads And Imports
 
 Handle:

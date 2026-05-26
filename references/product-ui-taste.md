@@ -61,6 +61,14 @@ Chinese product copy should sound like an internal product written by a person:
 - Use icons where the product already uses them, but do not hide unfamiliar actions behind unlabeled icons.
 - Text must fit its parent at supported viewport sizes; if it cannot, change the layout rather than shrinking with viewport width.
 - Preserve accessible contrast and focus states.
+- Keep repeated user-facing mode names in one source of truth. If labels appear in headers, chips, menus, placeholders, and message titles, changing the mode name should not require scattered string edits.
+
+## Overlays And Theme Fit
+
+- Component-library popovers, selects, dropdowns, tooltips, and command palettes often render in a portal under `body`. Theme them with global tokens or popper classes, not only with styles scoped to the page container.
+- Validate both the trigger and the teleported panel in dark and light themes. A dark page with a bright default dropdown, or a light page with dark leftover menu text, is a theme bug.
+- Overlay density should match the triggering control. Small command inputs need compact menus; avoid large floating panels unless the overlay is truly a browser, inspector, or rich picker.
+- When adding theme switching, include all overlay surfaces in the acceptance path: sidebars, forms, modals, select menus, context menus, code blocks, tables, and empty states.
 
 ## Loading Taste
 

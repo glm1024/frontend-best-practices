@@ -31,6 +31,8 @@ Check:
 - Refreshes use local loading where appropriate and avoid disruptive page-wide overlays.
 - Stale responses cannot overwrite newer filter/tab/page state.
 - Success and error paths leave the UI in a clear, recoverable state.
+- Command inputs distinguish selected mode, suggestion text, and real user input. Slash commands should not duplicate the mode label in the chip and the submitted content.
+- Composer auto-grow behavior has been checked for empty, one-line, multi-line, max-height, and clear-after-submit states.
 
 ## Data And Edge Cases
 
@@ -62,6 +64,8 @@ Check:
 - Cards are not nested unnecessarily.
 - Top controls, central work area, and persistent bottom commands have deliberate spacing and hierarchy.
 - Persistent bottom composers or command bars leave enough bottom padding for empty states, the last message/row, and mobile keyboards; verify narrow viewports after content exists, not only on the empty screen.
+- Starter prompts or example cards fill the composer as suggestions when the user is expected to customize them; they should clear predictably on focus or click.
+- Popovers, dropdowns, selects, command palettes, and tooltips match the current theme and density, including panels rendered outside the page root.
 - Secondary actions do not occupy standalone vertical space when they can live in a status row or compact toolbar.
 - Loading, empty, and error states do not feel theatrical.
 - Button text, dialog titles, and destructive confirmations name the actual action.
@@ -84,6 +88,8 @@ Choose validation based on risk:
 - Lint/typecheck/unit tests when available and relevant.
 - Frontend build script for component/template regressions.
 - Browser verification for real interaction, modal, form, route, upload, layout, or responsive behavior.
+- Browser verification for theme switching should inspect component-library portal surfaces such as select dropdowns, context menus, tooltips, and poppers, not only the main page background.
+- For slash commands or command palettes, verify keyboard navigation, active option movement, command acceptance, command cancellation, and the final normalized input text.
 - Mini-program tool or real-device verification for lifecycle, navigation stack, permissions, camera/scan/voice/payment/location, safe area, or keyboard paths.
 - Real-device or target-tool verification for press-and-hold gestures, cancellation thresholds, and thumb-reach issues.
 - App simulator/emulator or real-device verification for native navigation, OS permissions, deep links, offline/foreground transitions, native modules, safe area, or keyboard behavior.
